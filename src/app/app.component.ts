@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { PoChartSerie, PoMenuItem } from '@po-ui/ng-components';
 import { environment } from 'src/environments/environment';
 
@@ -21,7 +21,13 @@ export class AppComponent {
   }
   constructor(private httpClient: HttpClient) { }
   ngOnInit() {
-    this.httpClient.get<any>(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=`+environment.API_KEY_CMC)
+    this.httpClient.get<any>(`https://pro-api.coinmarketcap.com/cmc/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=`+environment.API_KEY_CMC,{
+      headers: {'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Methods': 'PUT, POST, OPTIONS, GET, HEAD',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'User-Agent': 'cryptoCharts',
+                'Accept': 'gzip, deflate, br'}
+   })
       .subscribe(cryptos => {
         let i: number = 0;
         for (let element of cryptos.data) {

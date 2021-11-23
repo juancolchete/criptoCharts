@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "config": "ts-node ./setenv.ts",
-    "start": "npm run config -- --environment=dev && ng serve",
-    "build": "npm run config -- --environment=prod && ng build",
+    "start": "npm run config -- --environment=dev && ng serve && --proxy-config proxy.config.js",
+    "build": "npm run config -- --environment=prod && ng build && --proxy-config proxy.config.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
