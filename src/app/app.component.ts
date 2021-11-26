@@ -21,14 +21,7 @@ export class AppComponent {
   }
   constructor(private httpClient: HttpClient) { }
   ngOnInit() {
-    this.httpClient.get<any>(`https://pro-api.coinmarketcap.com/cmc/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=`+environment.API_KEY_CMC,{
-      headers: {'Access-Control-Allow-Origin':'*',
-                'Access-Control-Allow-Methods': 'PUT, POST, OPTIONS, GET, HEAD',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'User-Agent': 'cryptoCharts',
-                'Accept': 'gzip, deflate, br'}
-   })
-      .subscribe(cryptos => {
+    this.httpClient.get<any>(environment.URL_BASE_CMC).subscribe(cryptos => {
         let i: number = 0;
         for (let element of cryptos.data) {
           if (i < 10) {
