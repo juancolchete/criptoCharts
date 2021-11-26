@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "config": "ts-node ./setenv.ts",
-    "start": "npm run config -- --environment=dev && ng serve && --proxy-config proxy.config.js",
-    "build": "npm run config -- --environment=prod && ng build && --proxy-config proxy.config.js",
+    "start": "npm run config -- --environment=dev && ng serve",
+    "build": "npm run config -- --environment=prod && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -20,10 +20,12 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@po-ui/ng-components": "^5.20.0",
+    "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "ng-process-env": "^1.0.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "unirest": "^0.6.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
