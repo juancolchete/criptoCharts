@@ -13,7 +13,8 @@ const targetPath = isProduction
 const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
-   API_KEY_CMC: "${process.env.API_KEY_CMC}"
+   API_KEY_CMC: "${process.env.API_KEY_CMC}",
+   URL_BASE_CMC: "${process.env.URL_BASE_CMC}"
 };
 `;
 // write the content to the respective file
